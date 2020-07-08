@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class BottonNavigationBarDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _BottomNavigationBarDemoState();
   }
 }
@@ -18,7 +17,6 @@ class _BottomNavigationBarDemoState extends State<BottonNavigationBarDemo> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return BottomNavigationBar(
         //设置目前选择哪一个index
         currentIndex: _currentIndex,

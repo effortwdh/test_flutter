@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'demo/Listview_demo.dart';
 import 'demo/Drawer_Demo.dart';
 import 'demo/Botton_navigation_bar_demo.dart';
+import 'demo/Basic_Demo.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -65,12 +66,10 @@ class Home extends StatelessWidget {
         //tabbar具体内容
         body: TabBarView(
           children: <Widget>[
+            //第一个页的第一个视图
             ListViewDemo(),
-            Icon(
-              Icons.change_history,
-              size: 128,
-              color: Colors.black12,
-            ),
+            //第一个页的第二个视图
+            BasicDemo(),
             Icon(
               Icons.directions_bike,
               size: 128,
