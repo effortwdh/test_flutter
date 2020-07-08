@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'model/post.dart';
+//列表demo
+import 'demo/Listview_demo.dart';
+import 'demo/Drawer_Demo.dart';
+import 'demo/Botton_navigation_bar_demo.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -8,68 +11,79 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     //类似于初始化函数 有一个widget返回 可以给其他调用函数使用
     return MaterialApp(
-        home: Home(), theme: ThemeData(primarySwatch: Colors.green));
+        debugShowCheckedModeBanner: false, //不展示debug条幅
+        home: Home(),
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+          //设置点击时候的水波纹样式
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          splashColor: Colors.white70,
+        ));
   }
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBulider(BuildContext context, int index) {
-    return Container(
-      //常见画图
-      color: Colors.white, //背景色
-      margin: EdgeInsets.all(8.0), //边缘宽度
-      child: Column(
-        //列排序
-        children: <Widget>[
-          //一个widget数组
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16.0), //设置间距
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.title, //title风格
-          ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.subhead,
-          ),
-          SizedBox(
-            height: 16.0,
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: Text('test1'),
-        //设置阴影
-        elevation: 30,
+    return DefaultTabController(
+      //控制tabbar和tabbarView的连接
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          //设置左边的图标按钮 下面设置好 就会自动添加
+          // leading: IconButton(
+          //   icon: Icon(Icons.menu),
+          //   tooltip: 'Navigration',
+          //   onPressed: () => debugPrint("leading check!"),
+          // ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              tooltip: 'Navigration',
+              onPressed: () => debugPrint("action check!"),
+            )
+          ],
+          title: Text('test1'),
+          //设置阴影
+          elevation: 30,
+          //AppBar 下面添加一个tabbar 里面添加 三个小图标
+          bottom: TabBar(
+            //设置未被选中的label颜色
+            unselectedLabelColor: Colors.black38,
+            //设置选中的下面的横线的属性
+            indicatorColor: Colors.black54,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.local_florist)),
+              Tab(icon: Icon(Icons.change_history)),
+              Tab(icon: Icon(Icons.directions_bike)),
+            ],
+          ),
+        ),
+        //tabbar具体内容
+        body: TabBarView(
+          children: <Widget>[
+            ListViewDemo(),
+            Icon(
+              Icons.change_history,
+              size: 128,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.directions_bike,
+              size: 128,
+              color: Colors.black12,
+            ),
+          ],
+        ),
+        //左边使用扫动来打开抽屉
+        drawer: DrawerDemo(),
+        //右边使用扫动来打开抽屉
+        //endDrawer: Text('This is right drawer'),
+        bottomNavigationBar: BottonNavigationBarDemo(),
       ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: _listItemBulider,
-      ),
-    );
-  }
-}
-
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('hello world',
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-              //设置大小
-              fontSize: 40.0,
-              //设置样式宽度
-              fontWeight: FontWeight.bold,
-              //设置颜色
-              color: Colors.yellow)),
     );
   }
 }
