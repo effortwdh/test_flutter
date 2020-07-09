@@ -5,6 +5,7 @@ import 'demo/Drawer_Demo.dart';
 import 'demo/Botton_navigation_bar_demo.dart';
 import 'demo/Basic_Demo.dart';
 import 'demo/layout_demo.dart';
+import 'demo/View_Demo.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -29,7 +30,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       //控制tabbar和tabbarView的连接
-      length: 3,
+      length: 4,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -61,6 +62,7 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_florist)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_bike)),
+              Tab(icon: Icon(Icons.view_quilt)),
             ],
           ),
         ),
@@ -73,6 +75,8 @@ class Home extends StatelessWidget {
             BasicDemo(),
             //第一个页的第三个视图
             LayoutDemo(),
+            //第一个页的第四个视图
+            ViewDemo(),
           ],
         ),
         //左边使用扫动来打开抽屉
