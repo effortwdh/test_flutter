@@ -6,6 +6,7 @@ import 'demo/Botton_navigation_bar_demo.dart';
 import 'demo/Basic_Demo.dart';
 import 'demo/layout_demo.dart';
 import 'demo/View_Demo.dart';
+import 'demo/sliver_demo.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false, //不展示debug条幅
         home: Home(),
+        //home: SliverDemo(),
         theme: ThemeData(
           primarySwatch: Colors.green,
           //设置点击时候的水波纹样式
@@ -30,7 +32,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       //控制tabbar和tabbarView的连接
-      length: 4,
+      length: 5,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -63,6 +65,7 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_bike)),
               Tab(icon: Icon(Icons.view_quilt)),
+              Tab(icon: Icon(Icons.airport_shuttle)),
             ],
           ),
         ),
@@ -77,6 +80,8 @@ class Home extends StatelessWidget {
             LayoutDemo(),
             //第一个页的第四个视图
             ViewDemo(),
+            //第一个页的第五个视图
+            SliverDemo(),
           ],
         ),
         //左边使用扫动来打开抽屉
