@@ -7,6 +7,7 @@ import 'demo/Basic_Demo.dart';
 import 'demo/layout_demo.dart';
 import 'demo/View_Demo.dart';
 import 'demo/sliver_demo.dart';
+import 'demo/NavigatorDame.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -16,8 +17,17 @@ class App extends StatelessWidget {
     //类似于初始化函数 有一个widget返回 可以给其他调用函数使用
     return MaterialApp(
         debugShowCheckedModeBanner: false, //不展示debug条幅
+        //home: Home(),
+        //home默认是根
+        //home: NavagatorDamo(),
         home: Home(),
-        //home: SliverDemo(),
+        //initialRoute: '/about',
+        routes: {
+          //'/': (context) => NavagatorDamo(),
+          '/about': (context) => Page(
+                title: 'About',
+              ),
+        },
         theme: ThemeData(
           primarySwatch: Colors.green,
           //设置点击时候的水波纹样式

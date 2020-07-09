@@ -3,16 +3,19 @@ class Post {
     this.title,
     this.author,
     this.imageUrl,
+    this.description,
   });
   final String title;
   final String author;
   final String imageUrl;
+  final String description;
 }
 
 final List<Post> posts = [
   Post(
     title: 'Candy Shop',
     author: 'Mohamed Chahin',
+    description: 'esjdfioanfoainfonafijajfanoigoaihgoiajgognaoifjao',
     imageUrl: 'https://resources.ninghao.org/images/candy-shop.jpg',
   ),
   Post(
