@@ -4,6 +4,7 @@ import 'demo/Listview_demo.dart';
 import 'demo/Drawer_Demo.dart';
 import 'demo/Botton_navigation_bar_demo.dart';
 import 'demo/Basic_Demo.dart';
+import 'demo/layout_demo.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -70,11 +71,8 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             //第一个页的第二个视图
             BasicDemo(),
-            Icon(
-              Icons.directions_bike,
-              size: 128,
-              color: Colors.black12,
-            ),
+            //第一个页的第三个视图
+            LayoutDemo(),
           ],
         ),
         //左边使用扫动来打开抽屉
