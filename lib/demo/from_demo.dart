@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ninghao_flutter/demo/simple_dialog_demo.dart';
 
 class FromDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //基本的页面结构
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Register'),
+      ),
         body: Theme(
       //重新定义应用的主题
       data: Theme.of(context).copyWith(
@@ -13,6 +17,7 @@ class FromDemo extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             //添加文本框

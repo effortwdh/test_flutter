@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'popup_menu_button_demo.dart';
+import 'simple_dialog_demo.dart';
+import 'alert_dialog_demo.dart';
+import 'bottom_sheet_dialog_demo.dart';
+import 'SnackBar_dialog_demo.dart';
+import 'from_demo.dart';
+import 'checkbox_demo.dart';
+import 'date_time_demo.dart';
 class MaterialComponents extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -13,6 +20,13 @@ class MaterialComponents extends StatelessWidget{
           ListItem(title: 'FloactionButton',pageWidget: FloatingActionButtonDemo(),),
           ListItem(title: 'ButtonDemo',pageWidget: ButtonDemo(),),
           ListItem(title: 'popupMenuButton',pageWidget: PopupMenuButtonDemo(),),
+          ListItem(title: 'simpleDialogDemo',pageWidget: SimpleDialogDemo(),),
+          ListItem(title: 'AlertDialogDemo',pageWidget: AlertDialogDemo(),),
+          ListItem(title: 'BottomSheetDemo',pageWidget: BottomSheetDemo(),),
+          ListItem(title: 'SnackBarDemo',pageWidget: SnackBarDemo(),),
+          ListItem(title: 'From',pageWidget: FromDemo(),),
+          ListItem(title: 'CheckBoxDemo',pageWidget: CheckBoxDemo(),),
+          ListItem(title: 'DataTimeDemo',pageWidget: DataTimeDemo(),),
         ],
       ),
     );
