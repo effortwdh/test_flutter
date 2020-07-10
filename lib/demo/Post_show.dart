@@ -3,6 +3,7 @@ import '../model/post.dart';
 
 class PostShow extends StatelessWidget {
   final Post post;
+  //获取post信息
   PostShow({
     @required this.post,
   });

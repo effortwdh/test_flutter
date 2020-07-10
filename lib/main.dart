@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ninghao_flutter/demo/from_demo.dart';
 //列表demo
 import 'demo/Listview_demo.dart';
 import 'demo/Drawer_Demo.dart';
@@ -8,6 +9,8 @@ import 'demo/layout_demo.dart';
 import 'demo/View_Demo.dart';
 import 'demo/sliver_demo.dart';
 import 'demo/NavigatorDame.dart';
+import 'demo/from_demo.dart';
+import 'demo/material_components.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -20,14 +23,19 @@ class App extends StatelessWidget {
         //home: Home(),
         //home默认是根
         //home: NavagatorDamo(),
-        home: Home(),
+        //注册页面
+        //home: FromDemo(),
+        //按钮页面
+        home: MaterialComponents(),
         //initialRoute: '/about',
-        routes: {
-          //'/': (context) => NavagatorDamo(),
-          '/about': (context) => Page(
-                title: 'About',
-              ),
-        },
+        //initialRoute: '/',
+//        routes: {
+//          '/':(context) => Home(),
+//          '/about': (context) => Page(
+//                title: 'About',
+//              ),
+//          '/form': (context) => FromDemo(),
+//        },
         theme: ThemeData(
           primarySwatch: Colors.green,
           //设置点击时候的水波纹样式
