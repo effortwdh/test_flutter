@@ -13,6 +13,7 @@ import 'demo/from_demo.dart';
 import 'demo/material_components.dart';
 import 'demo/state/state_management.dart';
 import 'demo/stream/stream_demo.dart';
+import 'demo/http/http_demo.dart';
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
 class App extends StatelessWidget {
@@ -31,7 +32,9 @@ class App extends StatelessWidget {
         //状态管理页面
         //home: StateManagementDemo2(),
         //Stream
-        home: StreamDemo(),
+        //home: StreamDemo(),
+        //http
+        home:HttpDemo(),
         //initialRoute: '/about',
         //initialRoute: '/',
 //        routes: {
