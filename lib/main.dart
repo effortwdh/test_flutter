@@ -11,6 +11,7 @@ import 'demo/sliver_demo.dart';
 import 'demo/NavigatorDame.dart';
 import 'demo/from_demo.dart';
 import 'demo/material_components.dart';
+import 'demo/state/state_management.dart';
 
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
@@ -26,7 +27,9 @@ class App extends StatelessWidget {
         //注册页面
         //home: FromDemo(),
         //按钮页面
-        home: MaterialComponents(),
+        //home: MaterialComponents(),
+        //状态管理页面
+        home: StateManagementDemo2(),
         //initialRoute: '/about',
         //initialRoute: '/',
 //        routes: {
