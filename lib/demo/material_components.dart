@@ -7,6 +7,8 @@ import 'SnackBar_dialog_demo.dart';
 import 'from_demo.dart';
 import 'checkbox_demo.dart';
 import 'date_time_demo.dart';
+import 'chip_demo.dart';
+import 'Data_Table_Demo.dart';
 class MaterialComponents extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,8 @@ class MaterialComponents extends StatelessWidget{
           ListItem(title: 'From',pageWidget: FromDemo(),),
           ListItem(title: 'CheckBoxDemo',pageWidget: CheckBoxDemo(),),
           ListItem(title: 'DataTimeDemo',pageWidget: DataTimeDemo(),),
+          ListItem(title: 'ChipDemo',pageWidget: ChipDemo(),),
+          ListItem(title: 'DataTableDemo',pageWidget: DataTableDemo(),),
         ],
       ),
     );
