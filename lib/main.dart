@@ -14,6 +14,11 @@ import 'demo/material_components.dart';
 import 'demo/state/state_management.dart';
 import 'demo/stream/stream_demo.dart';
 import 'demo/http/http_demo.dart';
+import 'demo/rxdart/rxdart_demol.dart';
+import 'demo/bloc/bloc_demo.dart';
+import 'demo/container_demo.dart';
+import 'demo/certification_information.dart';
+import 'demo/mine_news.dart';
 void main() => runApp(App()); //根据app类初始化返回的widget来绘制页面
 
 class App extends StatelessWidget {
@@ -34,7 +39,11 @@ class App extends StatelessWidget {
         //Stream
         //home: StreamDemo(),
         //http
-        home:HttpDemo(),
+        //home:HttpDemo(),
+        //Rxdart
+        //home: RxdartDemo(),
+        //Bloc框架
+        //home: BlocDemo(),
         //initialRoute: '/about',
         //initialRoute: '/',
 //        routes: {
@@ -44,6 +53,10 @@ class App extends StatelessWidget {
 //              ),
 //          '/form': (context) => FromDemo(),
 //        },
+        //模仿认证信息页面
+        home: CertificationInformation(),
+        //模仿我的消息页面
+        //home: MineNews(),
         theme: ThemeData(
           primarySwatch: Colors.green,
           //设置点击时候的水波纹样式
@@ -52,8 +65,74 @@ class App extends StatelessWidget {
         ));
   }
 }
-
-class Home extends StatelessWidget {
+class Home extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return HomeState();
+  }
+}
+class HomeState extends State<StatefulWidget> {
+  int _currentIndex = 0;
+  Widget _currBody = TabBarView(
+    children: <Widget>[
+      //第一个页的第一个视图
+      ListViewDemo(),
+      //第一个页的第二个视图
+      BasicDemo(),
+      //第一个页的第三个视图
+      LayoutDemo(),
+      //第一个页的第四个视图
+      ViewDemo(),
+      //第一个页的第五个视图
+      SliverDemo(),
+    ],
+  );
+  _onTap(int index) {
+    switch (index) {
+      //第二个页面
+      case 1:
+        _currBody = TabBarView(
+          children: <Widget>[
+            //第二个页的第一个视图
+            ContainerDemo(),
+            //第一个页的第二个视图
+            BasicDemo(),
+            //第一个页的第三个视图
+            LayoutDemo(),
+            //第一个页的第四个视图
+            ViewDemo(),
+            //第一个页的第五个视图
+            SliverDemo(),
+          ],
+        );
+        break;
+      case 2:
+        _currBody = FromDemo();
+        break;
+      case 3:
+        _currBody = MaterialComponents();
+        break;
+      case 0:
+        _currBody = TabBarView(
+          children: <Widget>[
+            //第一个页的第一个视图
+            ListViewDemo(),
+            //第一个页的第二个视图
+            BasicDemo(),
+            //第一个页的第三个视图
+            LayoutDemo(),
+            //第一个页的第四个视图
+            ViewDemo(),
+            //第一个页的第五个视图
+            SliverDemo(),
+          ],
+        );
+        break;
+    }
+    setState(() {
+      _currentIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -96,25 +175,39 @@ class Home extends StatelessWidget {
           ),
         ),
         //tabbar具体内容
-        body: TabBarView(
-          children: <Widget>[
-            //第一个页的第一个视图
-            ListViewDemo(),
-            //第一个页的第二个视图
-            BasicDemo(),
-            //第一个页的第三个视图
-            LayoutDemo(),
-            //第一个页的第四个视图
-            ViewDemo(),
-            //第一个页的第五个视图
-            SliverDemo(),
-          ],
-        ),
+        body: _currBody,
         //左边使用扫动来打开抽屉
         drawer: DrawerDemo(),
         //右边使用扫动来打开抽屉
         //endDrawer: Text('This is right drawer'),
-        bottomNavigationBar: BottonNavigationBarDemo(),
+        bottomNavigationBar: BottomNavigationBar(
+          //设置目前选择哪一个index
+            currentIndex: _currentIndex,
+            //设置点击事件 回调
+            onTap: _onTap,
+            //设置导航栏的类型
+            type: BottomNavigationBarType.fixed,
+            //选中为蓝色
+            fixedColor: Colors.blue,
+            //设置具体的Item
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.explore),
+                title: Text('Explore'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history),
+                title: Text('History'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.list),
+                title: Text('List'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                title: Text('My'),
+              ),
+            ]),
       ),
     );
   }

@@ -8,7 +8,7 @@ import 'from_demo.dart';
 import 'checkbox_demo.dart';
 import 'date_time_demo.dart';
 import 'chip_demo.dart';
-import 'Data_Table_Demo.dart';
+import 'data_table_demo.dart';
 class MaterialComponents extends StatelessWidget{
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'NavigatorDame.dart';
+import 'from_demo.dart';
+import 'material_components.dart';
+import '../main.dart';
 class BottonNavigationBarDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -9,7 +12,22 @@ class BottonNavigationBarDemo extends StatefulWidget {
 
 class _BottomNavigationBarDemoState extends State<BottonNavigationBarDemo> {
   int _currentIndex = 0;
-  void _onTapHandler(int index) {
+  Widget _currBody = App();
+  _onTap(int index) {
+    switch (index) {
+      case 3:
+        _currBody = NavagatorDamo();;
+        break;
+      case 1:
+        _currBody = FromDemo();
+        break;
+      case 2:
+        _currBody = MaterialComponents();
+        break;
+      case 0:
+        _currBody = App();
+        break;
+    }
     setState(() {
       _currentIndex = index;
     });
@@ -21,7 +39,7 @@ class _BottomNavigationBarDemoState extends State<BottonNavigationBarDemo> {
         //设置目前选择哪一个index
         currentIndex: _currentIndex,
         //设置点击事件 回调
-        onTap: _onTapHandler,
+        onTap: _onTap,
         //设置导航栏的类型
         type: BottomNavigationBarType.fixed,
         //选中为蓝色
