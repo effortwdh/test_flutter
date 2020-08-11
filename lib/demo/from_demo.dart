@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninghao_flutter/demo/simple_dialog_demo.dart';
-
+//登录界面
 class FromDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
